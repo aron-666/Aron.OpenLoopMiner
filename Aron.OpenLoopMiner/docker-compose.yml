@@ -1,0 +1,15 @@
+version: '1'
+services:
+  openloop:
+    image: aron666/openloop
+    container_name: openloop
+    environment:
+      - OL_USER=user
+      - OL_PASS=password
+      - ADMIN_USER=admin
+      - ADMIN_PASS=admin
+    ports:
+      - 5005:50005
+    build: 
+      context: .
+      dockerfile: Dockerfile

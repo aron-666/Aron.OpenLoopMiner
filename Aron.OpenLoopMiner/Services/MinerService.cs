@@ -124,6 +124,7 @@ namespace Aron.OpenLoopMiner.Services
                         options.AddArgument($"--proxy-auth={_appConfig.ProxyUser}:{_appConfig.ProxyPass}");
                     }
                 }
+                options.AddArgument("--remote-debugging-port=9222");
                 options.AddExcludedArgument("enable-automation");
                 options.AddUserProfilePreference("credentials_enable_service", false);
                 options.AddUserProfilePreference("profile.password_manager_enabled", false);
@@ -154,6 +155,7 @@ namespace Aron.OpenLoopMiner.Services
                 }
                 else
                     driver = new ChromeDriver(chromedriverPath, options);
+
                 try
                 {
 

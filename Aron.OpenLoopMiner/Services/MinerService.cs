@@ -140,6 +140,14 @@ namespace Aron.OpenLoopMiner.Services
                 string userDataDir = Path.Combine(Directory.GetCurrentDirectory(), "UserData");
                 if (!Directory.Exists(userDataDir))
                     Directory.CreateDirectory(userDataDir);
+                else
+                {
+                    var files = Directory.GetFiles(userDataDir, "Singleton*");
+                    foreach (var file in files)
+                    {
+                        File.Delete(file);
+                    }
+                }
                 options.AddArgument("--user-data-dir=" + userDataDir);
 
                 options.AddExtension(extensionPath);
